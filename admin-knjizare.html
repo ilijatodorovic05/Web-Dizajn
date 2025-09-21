@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Knjizare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="brand">
+            <a href="admin-knjizare.html" class="logo">Admin-knjizare</a>
+        </div>
+        <nav class="site-nav">
+            <a href="index.html">Pocetna</a>
+            <a href="admin-knjizare.html">Admin knjizare</a>
+            <a href="admin-korisnici.html">Admin korisnici</a>
+            <a href="#" id="nav-login" data-open="login">Prijava</a>
+            <a href="#" id="nav-register" data-open="register">Registracija</a>
+            <a href="#" id="nav-logout" hidden>Odjavi se</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Spisak svih knjizara</h2>
+            <div class="table-wrap">
+                <table border="1" cellpadding="8">
+                    <thead>
+                        <tr>
+                            <th>Naziv</th>
+                            <th>Adresa</th>
+                            <th>Godina</th>
+                            <th>Telefon</th>
+                            <th>Email</th>
+                            <th>Akcije</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-knjizara"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Izmena knjizare</h2>
+            
+            <form class="admin">
+                <label>ID</label>
+                <input type="text" readonly>
+
+                <label>Naziv</label>
+                <input type="text">
+
+                <label>Godina</label> 
+                <input type="number">
+
+
+                <label>Adresa</label>
+                <input type="text">
+
+
+                <label>Telefon</label>
+                <input type="tel">
+
+
+                <label>Email</label>
+                <input type="email">
+
+                <label>Logo (URL)</label> 
+                <input type="url" class="full">
+
+                <button type="submit" class="btn">Sacuvaj izmene</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Knjige u knjizari</h2>
+            <div id="admin-books">
+                <div id="books-list" class="grid books"></div>
+
+                <h3>Dodaj novu knjigu</h3>
+                <form id="form-book" class="admin">
+                    <label>Naziv</label>
+                    <input type="text" required>
+
+                    <label>Autor</label> 
+                    <input type="text" required>
+
+                    <label>Zanr</label>
+                    <input type="text">
+
+                    <label>Cena</label> 
+                    <input type="number" min="0" step="1">
+
+                    <label>Broj strana</label>
+                    <input type="number" min="1" step="1">
+
+                    <label>Format</label>
+                    <input type="text" placeholder="meki/tvrdi/eKnjiga/audio">
+
+                    <label>Slike (URL)</label>
+                    <input type="url" class="full" placeholder="url1, url2, url3"></input>
+
+                    <label class="full">Opis</label>
+                    <textarea class="full" rows="4"></textarea>
+
+                    <div class="full btn-row">
+                        <button type="submit" class="btn">Dodaj knjigu</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knjizare - Projekat iz Web Dizajna</p>
+    </footer>
+
+    <div id="overlay" class="modal-overlay" hidden></div>
+
+    <div id="modal-login" class="modal" role="dialog" aria-modal="true" aria-labelledby="login-title" hidden>
+        <div class="modal-card">
+            <button class="modal-close" aria-label="Zatvori" data-close>&times;</button>
+            <h2 id="login-title">Prijava</h2>
+            <form id="login-form" class="admin">
+                <label>Korisničko ime</label>
+                <input type="text" required>
+
+                <label>Lozinka</label>
+                <input type="password" required>
+
+                <div class="full btn-row">
+                    <button type="submit" class="btn">Prijavi se</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-register" class="modal" role="dialog" aria-modal="true" aria-labelledby="register-title" hidden>
+        <div class="modal-card">
+            <button class="modal-close" aria-label="Zatvori" data-close>&times;</button>
+            <h2 id="register-title">Registracija</h2>
+            <form id="register-form" class="admin">
+                <label>Korisničko ime</label>
+                <input type="text" required>
+
+                <label>Lozinka</label>
+                <input type="password" minlength="6" required>
+
+                <label>Ime</label>
+                <input type="text" required>
+
+                <label>Prezime</label>
+                <input type="text" required>
+
+                <label>Email</label>
+                <input type="email" required>
+
+                <label>Telefon</label>
+                <input type="text">
+
+                <label>Adresa</label>
+                <input type="text">
+
+                <div class="full btn-row">
+                    <button type="submit" class="btn">Registruj se</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+    
+</body>
+</html>
